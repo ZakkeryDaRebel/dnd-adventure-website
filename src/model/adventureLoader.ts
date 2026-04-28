@@ -1,15 +1,8 @@
-import testForestMeta from "../adventures/*test-forest/meta";
-import testForestStory from "../adventures/*test-forest/story";
-import goblinWestwoodMeta from "../adventures/goblin-westwood/meta";
-import goblinWestwoodStory from "../adventures/goblin-westwood/story";
+import { testForestAdventure } from "../adventures/*test-forest/testForestAdventure";
+import { goblinWestwoodAdventure } from "../adventures/goblin-westwood/goblinWestwoodAdventure";
+import type { Adventure } from "./Adventure";
 
-export const adventures = {
-  [testForestMeta.id]: {
-    meta: testForestMeta,
-    story: testForestStory,
-  },
-  [goblinWestwoodMeta.id]: {
-    meta: goblinWestwoodMeta,
-    story: goblinWestwoodStory,
-  },
+export const adventures: Record<string, Adventure> = {
+  [testForestAdventure.meta.id]: testForestAdventure,
+  [goblinWestwoodAdventure.meta.id]: goblinWestwoodAdventure,
 };
