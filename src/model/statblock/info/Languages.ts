@@ -18,6 +18,7 @@ export const Languages = {
   Celestial: "Celestial",
   Draconic: "Draconic",
   DeepSpeech: "Deep Speech",
+  ["Deep Speech"]: "DeepSpeech",
   Infernal: "Infernal",
   Primodial: "Primodial",
   Sylvan: "Sylvan",

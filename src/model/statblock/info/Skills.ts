@@ -5,6 +5,7 @@ export const Skills = {
   // Dexterity skills
   Acrobatics: "Acrobatics",
   SleightOfHand: "Sleight of Hand",
+  ["Sleight of Hand"]: "SleightOfHand",
   Stealth: "Stealth",
 
   // Intelligence skills
@@ -16,6 +17,7 @@ export const Skills = {
 
   // Wisdom skills
   AnimalHandling: "Animal Handling",
+  ["Animal Handling"]: "AnimalHandling",
   Insight: "Insight",
   Medicine: "Medicine",
   Perception: "Perception",

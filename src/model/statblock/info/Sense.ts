@@ -2,6 +2,7 @@ export const Sense = {
   // Keen Senses (Keen Hearing or Keen Smell = Advantage on Perception checks with that sense))
   // General Senses
   PassivePerception: "Passive Perception",
+  ["Passive Perception"]: "PassivePerception",
   Blindsight: "Blindsight",
   Darkvision: "Darkvision",
   Tremorsense: "Tremorsense",
