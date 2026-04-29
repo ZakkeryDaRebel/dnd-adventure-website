@@ -1,4 +1,4 @@
-import { testForestAdventure } from "../../adventures/*test-forest/testForestAdventure";
+import { testForestAdventure } from "../../adventures/test-forest/testForestAdventure";
 import { goblinWestwoodAdventure } from "../../adventures/goblin-westwood/goblinWestwoodAdventure";
 import type { Adventure } from "./Adventure";
 //Test comment
