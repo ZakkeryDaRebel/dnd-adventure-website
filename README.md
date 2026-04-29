@@ -29,6 +29,10 @@
     |   |- adventure                    Code regarding adventures
     |   |   |- Adventure.ts                 Template that contains all the meta data (id, title, description, and starting node), in addition to all the story nodes
     |   |   \- AdventureLoader.ts
+    |   |
+    |   |- item                         Code to create a list of all the items that can be found during adventures
+    |   |   \- Item.ts                      Base type of an Item
+    |   |
     |   |- node                         Code regarding nodes or interactable spots during the story
     |   |   |- Choice.ts                    A Choice shows text describing the choice and the node that you go to when selected
     |   |   |- ContentBlock.ts              Content can come in 4 different forms (title, paragraph, image, or reveal)
@@ -36,7 +40,21 @@
     |   |   |- NodeType.ts                  A Node that is the parent type used in Nodes and is either Fight or Story
     |   |   \- StoryNodeType.ts             A Node that contains information regarding a story
     |   |
+    |   |- spell                        Code regarding spells
+    |   |   \- spell.ts                     Base interface about a spell
+    |   |
     |   \- statblock                    Code regarding enemy stat blocks
+    |       |- info                         Code regarding information that is on a statblock
+    |       |   |- AbilityScores.ts             Enum for the 6 types of Ability Scores
+    |       |   |- Alignment.ts                 Enum for the 9 types of Alignment
+    |       |   |- CreatureType.ts              Enum for the 14 types of Creatures
+    |       |   |- Damage.ts                    Enum for the 13 types of Damage
+    |       |   |- Languages.ts                 Enum for the Languages that can be found in D&D
+    |       |   |- Sense.ts                     Enum for the different Senses that a creature can have
+    |       |   |- Size.ts                      Enum for the 6 size classifications of D&D creatures
+    |       |   \- Skills.ts                    Enum for the 18 types of Skills (for proficiency)
+    |       |
+    |       |- SpellcasterStatblock.ts      Extends Statblock to add Spellcasting information in
     |       \- Statblock.ts                 Base information that is in all Statblocks (Under development)
     |
     |- pages                        React code for page layout
@@ -48,4 +66,6 @@
     |- App.tsx
     |- index.css
     \- main.tsx
+
+- tests
 ```
