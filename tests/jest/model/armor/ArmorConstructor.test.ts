@@ -3,8 +3,8 @@ import {
   plusNumArmorConstructor,
   ArmorType,
   Armor,
-} from "../../../src/model/item/armor/Armor";
-import { Cost } from "../../../src/model/item/Cost";
+} from "../../../../src/model/item/armor/Armor";
+import { Cost } from "../../../../src/model/item/Cost";
 
 const chainName: string = "Chain Mail";
 const chainPlusName: string = "Chain Mail, +1";

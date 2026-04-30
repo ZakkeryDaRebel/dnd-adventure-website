@@ -4,10 +4,10 @@ import {
   WeaponProperties,
   Weapon,
   AttackDamage,
-} from "../../../src/model/item/weapons/Weapon";
-import type { Cost } from "../../../src/model/item/Cost";
-import { Damage } from "../../../src/model/statblock/info/Damage";
-import { diceConstructor } from "../../../src/model/dice/Dice";
+} from "../../../../src/model/item/weapons/Weapon";
+import type { Cost } from "../../../../src/model/item/Cost";
+import { Damage } from "../../../../src/model/statblock/info/Damage";
+import { diceConstructor } from "../../../../src/model/dice/Dice";
 
 const spearName: string = "Spear";
 const spearPlusName: string = "Spear, +1";

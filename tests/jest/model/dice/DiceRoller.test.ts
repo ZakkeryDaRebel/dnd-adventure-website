@@ -1,5 +1,5 @@
-import { Dice, diceConstructor } from "../../../src/model/dice/Dice";
-import { roll } from "../../../src/model/dice/DiceRoller";
+import { Dice, diceConstructor } from "../../../../src/model/dice/Dice";
+import { roll } from "../../../../src/model/dice/DiceRoller";
 
 test("reject invalid diceConstructor formats", () => {
   const failList: string[] = ["abc", "2d", "d6", "-1d6", "2d0"];
