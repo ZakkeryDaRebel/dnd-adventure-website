@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "jest & npm run dev & npx playwright test --reporter=list"
+    "test": "jest && playwright test --reporter=list"
   },
   "dependencies": {
     "react": "^19.2.5",
