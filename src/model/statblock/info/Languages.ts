@@ -24,3 +24,29 @@ export const Languages = {
   Sylvan: "Sylvan",
   Undercommon: "Undercommon",
 } as const;
+
+// export const LanguageSpeakers = {
+//   // Standard
+//   Common: "Humans",
+//   Dwarvish: "Dwarves",
+//   Elvish: "Elves",
+//   Giant: "Agres, Giants",
+//   Gnomish: "Gnomes",
+//   Goblin: "Goblinoids",
+//   Halfling: "Halflings",
+//   Orc: "Orcs",
+
+//   // Exotic
+//   Abyssal: "Demons",
+//   Celestial: "Celestials",
+//   Draconic: "Dragons, Dragonborn",
+//   DeepSpeech: "Mind flayers, Beholders",
+//   Infernal: "Devils",
+//   Primodial: "Elementals",
+//   Sylvan: "Fey creatures",
+//   Undercommon: "Underdark traders",
+// } as const;
+
+// export const LanguageScript = {
+
+// }
