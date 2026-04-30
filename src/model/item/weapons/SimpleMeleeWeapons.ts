@@ -1,6 +1,6 @@
 import { diceConstructor } from "../../dice/Dice";
 import { Coin } from "../Cost";
-import { WeaponProperties, type Weapon } from "./Weapon";
+import { WeaponMastery, WeaponProperties, type Weapon } from "./Weapon";
 import { weaponConstructor } from "./WeaponConstructor";
 import { Damage } from "../../statblock/info/Damage";
 
@@ -15,4 +15,5 @@ export const Spear: Weapon = weaponConstructor(
   },
   0,
   0,
+  WeaponMastery.Sap,
 );

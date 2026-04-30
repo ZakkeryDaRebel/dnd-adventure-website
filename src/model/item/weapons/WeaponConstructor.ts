@@ -1,5 +1,10 @@
 import type { Cost } from "../Cost";
-import type { AttackDamage, WeaponProperties, Weapon } from "./Weapon";
+import type {
+  AttackDamage,
+  WeaponProperties,
+  Weapon,
+  WeaponMastery,
+} from "./Weapon";
 
 export function weaponConstructor(
   name: string,
@@ -9,6 +14,7 @@ export function weaponConstructor(
   properties: Partial<Record<keyof typeof WeaponProperties, string>>,
   addToHit: number,
   addToDamage: number,
+  mastery: keyof typeof WeaponMastery,
 ): Weapon {
   return {
     name: name,
@@ -18,6 +24,7 @@ export function weaponConstructor(
     properties: properties,
     addToHit: addToHit,
     addToDamage: addToDamage,
+    mastery,
   };
 }
 
@@ -30,6 +37,7 @@ export function PlusNumWeaponConstructor(
   properties: Partial<Record<keyof typeof WeaponProperties, string>>,
   addToHit: number,
   addToDamage: number,
+  mastery: keyof typeof WeaponMastery,
 ): Weapon {
   return weaponConstructor(
     name + ", +" + numIncrease,
@@ -39,5 +47,6 @@ export function PlusNumWeaponConstructor(
     properties,
     addToHit + numIncrease,
     addToDamage + numIncrease,
+    mastery,
   );
 }
