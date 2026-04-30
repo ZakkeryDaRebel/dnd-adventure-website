@@ -1,10 +1,12 @@
 import {
-  weaponConstructor,
-  PlusNumWeaponConstructor,
   WeaponProperties,
   Weapon,
   AttackDamage,
 } from "../../../../src/model/item/weapons/Weapon";
+import {
+  weaponConstructor,
+  PlusNumWeaponConstructor,
+} from "../../../../src/model/item/weapons/WeaponConstructor";
 import type { Cost } from "../../../../src/model/item/Cost";
 import { Damage } from "../../../../src/model/statblock/info/Damage";
 import { diceConstructor } from "../../../../src/model/dice/Dice";
