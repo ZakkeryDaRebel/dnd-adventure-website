@@ -10,7 +10,7 @@ import { Damage } from "../../../src/model/statblock/info/Damage";
 import { diceConstructor } from "../../../src/model/dice/Dice";
 
 const spearName: string = "Spear";
-const spearPlusName: string = "Spear+1";
+const spearPlusName: string = "Spear, +1";
 const spearCost: Cost = { amount: 1, type: "GP" };
 const spearDamage: AttackDamage[] = [
   { die: diceConstructor("1d6"), damageType: Damage.Piercing },

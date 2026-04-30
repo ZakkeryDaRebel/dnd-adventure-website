@@ -42,7 +42,7 @@ export function plusNumArmorConstructor(
   other: string,
 ): Armor {
   return armorConstructor(
-    name + "+" + numIncrease,
+    name + ", +" + numIncrease,
     cost,
     weight,
     baseAC + numIncrease,

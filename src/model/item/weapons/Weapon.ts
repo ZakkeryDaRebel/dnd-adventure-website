@@ -41,7 +41,7 @@ export function PlusNumWeaponConstructor(
   addToDamage: number,
 ): Weapon {
   return weaponConstructor(
-    name + "+" + numIncrease,
+    name + ", +" + numIncrease,
     cost,
     weight,
     damage,
