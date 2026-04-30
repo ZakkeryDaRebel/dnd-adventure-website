@@ -1,9 +1,8 @@
+import { ArmorType, Armor } from "../../../../src/model/item/armor/Armor";
 import {
   armorConstructor,
   plusNumArmorConstructor,
-  ArmorType,
-  Armor,
-} from "../../../../src/model/item/armor/Armor";
+} from "../../../../src/model/item/armor/ArmorConstructor";
 import { Cost } from "../../../../src/model/item/Cost";
 
 const chainName: string = "Chain Mail";
