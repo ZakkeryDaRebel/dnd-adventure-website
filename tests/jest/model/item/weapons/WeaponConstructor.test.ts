@@ -2,14 +2,15 @@ import {
   WeaponProperties,
   Weapon,
   AttackDamage,
-} from "../../../../src/model/item/weapons/Weapon";
+  WeaponMastery,
+} from "../../../../../src/model/item/weapons/Weapon";
 import {
   weaponConstructor,
   PlusNumWeaponConstructor,
-} from "../../../../src/model/item/weapons/WeaponConstructor";
-import type { Cost } from "../../../../src/model/item/Cost";
-import { Damage } from "../../../../src/model/statblock/info/Damage";
-import { diceConstructor } from "../../../../src/model/dice/Dice";
+} from "../../../../../src/model/item/weapons/WeaponConstructor";
+import type { Cost } from "../../../../../src/model/item/Cost";
+import { Damage } from "../../../../../src/model/statblock/info/Damage";
+import { diceConstructor } from "../../../../../src/model/dice/Dice";
 
 const spearName: string = "Spear";
 const spearPlusName: string = "Spear, +1";
@@ -25,6 +26,7 @@ const spearProperties: Partial<Record<keyof typeof WeaponProperties, string>> =
   };
 const spearBonus: number = 0;
 const spearPlusBonus: number = 1;
+const spearMastery: keyof typeof WeaponMastery = WeaponMastery.None;
 
 function compare(
   weaponToCompare: Weapon,
@@ -35,6 +37,7 @@ function compare(
   properties: Partial<Record<keyof typeof WeaponProperties, string>>,
   addToHit: number,
   addToDamage: number,
+  mastery: keyof typeof WeaponMastery,
 ) {
   expect(weaponToCompare.name).toBe(name);
   expect(weaponToCompare.cost).toEqual(cost);
@@ -48,6 +51,7 @@ function compare(
   );
   expect(weaponToCompare.addToHit).toBe(addToHit);
   expect(weaponToCompare.addToDamage).toBe(addToDamage);
+  expect(weaponToCompare.mastery).toBe(mastery);
 }
 
 describe("Weapon Constructor - Spear", () => {
@@ -60,6 +64,7 @@ describe("Weapon Constructor - Spear", () => {
       spearProperties,
       spearBonus,
       spearBonus,
+      spearMastery,
     );
 
     compare(
@@ -71,6 +76,7 @@ describe("Weapon Constructor - Spear", () => {
       spearProperties,
       spearBonus,
       spearBonus,
+      spearMastery,
     );
   });
 
@@ -84,6 +90,7 @@ describe("Weapon Constructor - Spear", () => {
       spearProperties,
       spearBonus,
       spearBonus,
+      spearMastery,
     );
 
     compare(
@@ -95,6 +102,7 @@ describe("Weapon Constructor - Spear", () => {
       spearProperties,
       spearPlusBonus,
       spearPlusBonus,
+      spearMastery,
     );
   });
 });
