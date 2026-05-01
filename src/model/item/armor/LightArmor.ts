@@ -7,6 +7,8 @@ const gp = Coin.GP;
 
 const light = ArmorType.Light;
 
+const lightOther: string = " (Add Dexterity modifier to AC)";
+
 export const Padded: Armor = armorConstructor(
   "Padded",
   costConstructor(5, gp),
@@ -22,7 +24,7 @@ export const Leather: Armor = armorConstructor(
   10,
   11,
   light,
-  " (Add Dexterity modifier to AC)",
+  lightOther,
 );
 
 export const StuddedLeather: Armor = armorConstructor(
@@ -31,7 +33,7 @@ export const StuddedLeather: Armor = armorConstructor(
   13,
   12,
   light,
-  " (Add Dexterity modifier to AC)",
+  lightOther,
 );
 
 export const allLightArmor: Armor[] = [Padded, Leather, StuddedLeather];
