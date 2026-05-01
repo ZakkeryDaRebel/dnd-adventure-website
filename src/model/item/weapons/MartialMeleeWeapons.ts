@@ -133,6 +133,7 @@ export const Halberd: Weapon = weaponConstructor(
   cleave,
 );
 
+// 2014 Lance is 1d12 Piercing damage, and no Heavy property
 export const Lance: Weapon = weaponConstructor(
   "Lance",
   tenGP,
@@ -223,6 +224,7 @@ export const Shortsword: Weapon = weaponConstructor(
   vex,
 );
 
+// 2014 Trident is 1d6 Piercing with versitle (1d8)
 export const Trident: Weapon = weaponConstructor(
   "Trident",
   fiveGP,
@@ -237,6 +239,7 @@ export const Trident: Weapon = weaponConstructor(
   topple,
 );
 
+// 2014 Warhammer was 2 lb
 export const Warhammer: Weapon = weaponConstructor(
   "Warhammer",
   fifteenGP,
@@ -248,6 +251,7 @@ export const Warhammer: Weapon = weaponConstructor(
   push,
 );
 
+// 2014 War Pick didn't have the versatile property
 export const WarPick: Weapon = weaponConstructor(
   "War Pick",
   fiveGP,
