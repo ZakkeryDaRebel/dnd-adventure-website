@@ -1,6 +1,7 @@
 import { Coin } from "../Cost";
 import type { Armor } from "./Armor";
-import { armorConstructor, ArmorType } from "./Armor";
+import { ArmorType } from "./Armor";
+import { armorConstructor } from "./ArmorConstructor";
 
 export const Shield: Armor = armorConstructor(
   "Shield",
