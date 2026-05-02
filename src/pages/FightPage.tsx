@@ -1,13 +1,17 @@
 import { useState } from "react";
 import type { FightNodeType } from "../model/node/FightNodeType";
+import { diceConstructor, type Dice } from "../model/dice/Dice";
+import { roll } from "../model/dice/DiceRoller";
 
 interface Props {
   node: FightNodeType;
   goTo: (nodeId: string) => void;
 }
 
-function rollD20(): number {
-  return Math.floor(Math.random() * 20) + 1;
+const d20: Dice = diceConstructor("1d20");
+
+function rollD20(modifier: number): number {
+  return roll(d20) + modifier;
 }
 
 function BattlefieldGrid({ grid }: { grid: string[][] }) {
@@ -36,7 +40,7 @@ export default function FightPage({ node, goTo }: Props) {
   console.log(log);
 
   function enemyAttack() {
-    const roll = rollD20();
+    const roll = rollD20(0);
     setLastRoll(roll);
 
     if (roll >= node.enemyHitDC)
