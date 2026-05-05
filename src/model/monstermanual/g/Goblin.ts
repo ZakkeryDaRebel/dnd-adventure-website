@@ -14,6 +14,7 @@ import { Coin } from "../../item/Cost";
 // export const GoblinArcher: Statblock = {}
 
 export const GoblinWarrior: Statblock = {
+  title: "2014 Goblin",
   name: "Goblin Warrior",
   size: Size.Small,
   creatureType: CreatureType.Humanoids,
