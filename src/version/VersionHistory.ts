@@ -13,8 +13,23 @@ import type { VersionEntry } from "./VersionEntry";
 
 export const VERSION_HISTORY: VersionEntry[] = [
   {
+    version: "v2.0.2",
+    commit: "lates",
+    date: "May 5th",
+    description:
+      "Added a title to the statblocks, so I can separate the name of the creature, and the title of the statblock",
+    additions: [""],
+    reworks: [
+      "Statblock template",
+      "Guard object",
+      "Goblin object",
+      "Guard object",
+    ],
+    removals: [""],
+  },
+  {
     version: "v2.0.1",
-    commit: "latest",
+    commit: "3208692",
     date: "May 4th, 2026",
     description:
       "Added a way to keep track of the version history of this project (that isn't on GitHub). Updated README with all of this information.",
