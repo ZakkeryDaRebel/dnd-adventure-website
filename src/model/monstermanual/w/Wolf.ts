@@ -11,6 +11,7 @@ import type { Statblock } from "../../statblock/Statblock";
 
 export const Wolf: Statblock = {
   // Base information
+  title: "2014 Wolf",
   name: "Wolf",
   size: Size.Medium,
   creatureType: CreatureType.Beasts,
