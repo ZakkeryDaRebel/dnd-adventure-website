@@ -19,6 +19,7 @@ import type { Statblock } from "../../statblock/Statblock";
 const pierce = Damage.Piercing;
 
 export const GuardSpear: Statblock = {
+  title: "2014 Guard",
   name: "Spear Guard",
   size: Size.Medium,
   creatureType: CreatureType.Humanoids,
