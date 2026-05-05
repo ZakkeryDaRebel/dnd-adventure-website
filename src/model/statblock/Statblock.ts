@@ -12,6 +12,7 @@ import type { Action } from "./info/Action";
 
 export interface Statblock {
   // Base information
+  title: string;
   name: string;
   size: keyof typeof Size;
   creatureType: keyof typeof CreatureType;
