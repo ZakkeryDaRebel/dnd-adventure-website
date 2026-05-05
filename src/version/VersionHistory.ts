@@ -6,9 +6,9 @@ import type { VersionEntry } from "./VersionEntry";
 //     commit: "",
 //     date: "",
 //     description: "",
-//     additions: [""],
-//     reworks: [""],
-//     removals: [""],
+//     additions: [],
+//     reworks: [],
+//     removals: [],
 //   },
 
 export const VERSION_HISTORY: VersionEntry[] = [
@@ -18,14 +18,14 @@ export const VERSION_HISTORY: VersionEntry[] = [
     date: "May 5th",
     description:
       "Added a title to the statblocks, so I can separate the name of the creature, and the title of the statblock",
-    additions: [""],
+    additions: [],
     reworks: [
       "Statblock template",
       "Guard object",
       "Goblin object",
       "Guard object",
     ],
-    removals: [""],
+    removals: [],
   },
   {
     version: "v2.0.1",
