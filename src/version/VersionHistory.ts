@@ -29,7 +29,7 @@ export const VERSION_HISTORY: VersionEntry[] = [
   },
   {
     version: "v2.0.2",
-    commit: "latest",
+    commit: "296c762",
     date: "May 5th, 2026",
     description:
       "Added a title to the statblocks, so I can separate the name of the creature, and the title of the statblock",
