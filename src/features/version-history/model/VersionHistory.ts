@@ -14,7 +14,7 @@ import type { VersionEntry } from "./VersionEntry";
 export const VERSION_HISTORY: VersionEntry[] = [
   {
     version: "v2.1.0",
-    commit: "latest",
+    commit: "d48ef2b",
     date: "May 7th, 2026",
     description:
       "Completely revamped the entire project's file structure. Originally I wanted to have the files be separated like in CS 340, with components, pages, and model code. This felt off because my dependencies were all over the place (probably could have used dependency inversion to fix that), but instead I changed my project structure to be more sorted on features and grouping similar functionality together, and separating out each feature's components, model code, and page code. While doing that, I did separate out some more files to keep each file to only having 1 responsibility",
