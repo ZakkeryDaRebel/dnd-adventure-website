@@ -12,6 +12,7 @@ export * from "./components/StoryTitle";
 // Model
 export * from "./model/Choice";
 export * from "./model/ContentBlock";
+export * from "./model/FormatText";
 export * from "./model/StoryNodeType";
 
 // Pages
