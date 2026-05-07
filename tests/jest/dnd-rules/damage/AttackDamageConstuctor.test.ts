@@ -1,9 +1,9 @@
-import { diceConstructor, type Dice } from "../../../../../src/dice";
+import { diceConstructor, type Dice } from "../../../../src/dice";
 import {
   attackDamageConstructor,
   Damage,
   type AttackDamage,
-} from "../../../../../src/dnd-rules";
+} from "../../../../src/dnd-rules";
 
 function compare(
   attackDamageToCompare: AttackDamage,

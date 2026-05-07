@@ -1,9 +1,5 @@
 import { createContext, useContext } from "react";
-
-export interface GameState {
-  playerInitiative: number | null;
-  setPlayerInitiative: (n: number | null) => void;
-}
+import type { GameState } from "./GameState";
 
 export const GameContext = createContext<GameState | null>(null);
 

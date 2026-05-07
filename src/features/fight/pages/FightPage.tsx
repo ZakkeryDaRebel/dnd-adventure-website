@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useGame } from "../../game-state/GameContext";
+import { useGame } from "../../game-state/";
 import PlayerInitiativeInput from "../components/PlayerInitiativeInput";
 import { rollD20WithModifier } from "../../../dice";
 import {

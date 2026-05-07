@@ -7,153 +7,232 @@
     \- ci.yml                       CI Pipeline to deploy development to Github Pages
 
 - public                        React Template Images (Might delete later)
-    |- favicon.svg
+    |- favicon.svg                  (used in index.html as tab icon)
     \- icons.svg
 
 - src                           Source Code
-    |- adventures                   All the current adventures on the website
-    |   |- goblin-westwood              First adventure written by me (Under Development)
-    |   \- test-forest                  ChatGPT originally created and I heavily modified adventure to test functionality during development (Will eventually be an adventure players may actually enjoy once polished)
+    |- app                          Main App Code
+    |   |- providers                    React Provider Code
+    |   |   \- GameProvider.tsx             Provides Environmental / Global variables for the React state code
+    |   |
+    |   |- App.css
+    |   |- App.tsx
+    |   |- index.css
+    |   \- main.tsx
     |
     |- assets                       React Template Images (Might delete later)
     |   |- hero.png
     |   |- react.svg
     |   \- vite.svg
     |
-    |- components                   React Components
-    |   |- fight                        React Components for the Fight Page
-    |   |   |- BattlefieldGrid.tsx          Component to render the 2D Component (Prints only 1D at the moment)
-    |   |   |- CombatantCard.tsx            Component to show a Combatant's HP tracker and a button to reveal their statblock
-    |   |   |- DisplayStatblock.tsx         Component to show the information on the Combatant's Statblock
-    |   |   \- PlayInitiativeInput.tsx      Component to have the user input their Initiative before the fight starts
-    |   |
-    |   |- story                        React Components for the Story Page
-    |   |   |- ChoiceList.tsx               Component to list all the Choices available for the player
-    |   |   |- StoryImage.tsx               Component to render the image for the story
-    |   |   |- StoryParagraph.tsx           Component to render basic code for the story with options to italicize and bold some of it as well.
-    |   |   |- StoryRevealText.tsx          Component to have a button that once clicked will reveal some text
-    |   |   \- StoryTitle.tsx               Component to display a title for the story
-    |   |
-    |   |- AdventureCard.tsx            A default card shaped button that will display the adventure information on the HomePage
-    |   \- ChoiceButton.tsx             A default button to display choices
-    |
-    |- context                      Code to hold the Game's Context
-    |   |- GameContext.ts               Typescript code to do the functionality of the Context
-    |   \- GameProvider.tsx             React code to provide hooks for other classes to use the Context
-    |
-    |- model                        Typescript code, not using React code
-    |   |- adventure                    Code regarding adventures
-    |   |   |- Adventure.ts                 Template that contains all the meta data (id, title, description, and starting node), in addition to all the story nodes
-    |   |   \- AdventureLoader.ts
-    |   |
-    |   |- dice                         Code regarding dice
-    |   |   |- Dice.ts                      Interface for a Dice object, and a DiceConstructor
-    |   |   \- DiceRoller.ts                Function to roll the dice, and add modifiers if passed in
-    |   |
-    |   |- item                         Code to create a list of all the items that can be found during adventures
-    |   |   |- armor                        Code relating to Armor (extending from Item)
-    |   |   |   |- Armor.ts                     Template Armor object and the ArmorType enum
-    |   |   |   |- ArmorConstructor.ts          Function to create an Armor instance
-    |   |   |   |- HeavyArmor.ts                Const objects for PHB Heavy Armor
-    |   |   |   |- LightArmor.ts                Const objects for PHB Light Armor
-    |   |   |   |- MediumArmor.ts               Const objects for PHB Medium Armor
-    |   |   |   \- Shield.ts                    Const object for PHB Shield
+    |- content                      Static / Constant code data (implementations of interfaces)
+    |   |- adventures                   Already created Adventures
+    |   |   |- dark-forest                  Dark Forest Adventure code
+    |   |   |   \- DarkForestAdventure.ts
     |   |   |
-    |   |   |- weapons                      Code relating to Weapons (extending from Item)
-    |   |   |   |- AttackDamageConstructor.ts   Function to create an AttackDamage instance
-    |   |   |   |- MartialMeleeWeapons.ts       Const objects for PHB Martial Melee Weapons
-    |   |   |   |- MartialRangedWeapons.ts      Const objects for PHB Martial Ranged Weapons
-    |   |   |   |- PHBGuns.ts                   Const objects for PHB Guns
-    |   |   |   |- SimpleMeleeWeapons.ts        Const objects for PHB Simple Melee Weapons
-    |   |   |   |- SimpleRangedWeapons.ts       Const objects for PHB Simple Ranged Weapons
-    |   |   |   |- Weapon.ts                    Template Weapon object with AttackDamage template and WeaponProeprties enum
-    |   |   |   \- WeaponConstructor.ts         Function to create a Weapon instance
+    |   |   |- goblin-westwood              Goblin Westwood Adventure code
+    |   |   |   \- GoblinWestwoodAdventure.ts
     |   |   |
-    |   |   |- Cost.ts                      Object to hold the value of an item with a Coin Enum
-    |   |   |- CostConstructor.ts           Function to create a Cost instance
-    |   |   \- Item.ts                      Base type of an Item
+    |   |   \- index.ts                     Barrell file to export all the adventure information
     |   |
-    |   |- monstermanual                Code regarding all the monsters on the website sorted into packages of the first letter
-    |   |   |- g                            G's
-    |   |   |   |- Goblin.ts                    Const GoblinWarrior object
-    |   |   |   \- Guard.ts                     Const GuardSpear object
-    |   |   |
-    |   |   |- w                            W's
-    |   |   |   \- Wolf.ts                      Const Wolf object
-    |   |   |
-    |   |   |- AddLanguage.ts               Code to clone a base Statblock and add langauges to the list
-    |   |   |- AddRace.ts                   Code to clone a base Statblock and change the description tag (usually for creatures with a Humanoid CreatureType) to an actual Race
-    |   |   \- ChangeName.ts                Code to clone a base Statblock and change the name, so we can number enemies or give Allies actual names
-    |   |
-    |   |- node                         Code regarding nodes or interactable spots during the story
-    |   |   |- Choice.ts                    A Choice shows text describing the choice and the node that you go to when selected
-    |   |   |- Combatant.ts                 Template class for the information a Combatant needs to be part of a Fight Node
-    |   |   |- ContentBlock.ts              Content can come in 4 different forms (title, paragraph, image, or reveal)
-    |   |   |- CreateCombatants.ts          Function to turn all the enemies and allies in the Fight Node into Combatants
-    |   |   |- FightNodeType.ts             A Node that contains information regarding a fight
-    |   |   |- NodeType.ts                  A Node that is the parent type used in Nodes and is either Fight or Story
-    |   |   \- StoryNodeType.ts             A Node that contains information regarding a story
-    |   |
-    |   |- race                         Code regarding the different races
-    |   |   \- Race.ts                      Enum for the Races in D&D
-    |   |
-    |   |- spell                        Code regarding spells
-    |   |   \- spell.ts                     Base interface about a spell
-    |   |
-    |   \- statblock                    Code regarding enemy stat blocks
-    |       |- info                         Code regarding information that is on a statblock
-    |       |   |- AbilityScores.ts             Enum for the 6 types of Ability Scores
-    |       |   |- Action.ts                    Base template class for an Action
-    |       |   |- Alignment.ts                 Enum for the 9 types of Alignment
-    |       |   |- Condition.ts                 Enum for the 15 types of Conditions
-    |       |   |- CreatureType.ts              Enum for the 14 types of Creatures
-    |       |   |- Damage.ts                    Enum for the 13 types of Damage
-    |       |   |- Languages.ts                 Enum for the Languages that can be found in D&D
-    |       |   |- Sense.ts                     Enum for the different Senses that a creature can have
-    |       |   |- Size.ts                      Enum for the 6 size classifications of D&D creatures
-    |       |   \- Skills.ts                    Enum for the 18 types of Skills (for proficiency)
+    |   \- dnd-data                     D&D Data
+    |       |- armor                        Armor objects
+    |       |   |- HeavyArmor.ts                D&D Heavy Armor
+    |       |   |- LightArmor.ts                D&D Light Armor
+    |       |   |- MediumArmor.ts               D&D Medium Armor
+    |       |   \- Shield.ts                    D&D Shield
     |       |
-    |       |- DamageStatblock.ts           Extends Statblock to add damage resistances, immunities, and vulnerabilities, in addition to condition immunities
-    |       |- LegendaryStatblock.ts        Extends Statblock to add Legendary Reactions and Resistances
-    |       |- SpellcasterStatblock.ts      Extends Statblock to add Spellcasting information in
-    |       \- Statblock.ts                 Base information that is in all Statblocks (Under development)
+    |       |- monster-manual               Creature objects
+    |       |   |- g                            Names starting with 'G'
+    |       |   |   |- Goblin                       D&D Goblin (Warrior)
+    |       |   |   \- Guard                        D&D Gaurd (Spear)
+    |       |   |
+    |       |   \- w                            Names starting with 'W'
+    |       |       \- Wolf                         D&D Wolf
+    |       |
+    |       |- weapons                      Weapon objects
+    |       |   |- MartialMeleeWeapons.ts       D&D Martial Melee Weapons
+    |       |   |- MartialRangedWeapons.ts      D&D Martial Ranged Weapons
+    |       |   |- PHBGuns.ts                   D&D Player's Handbook Guns
+    |       |   |- SimpleMeleeWeapons.ts        D&D Simple Melee Weapons
+    |       |   \- SimpleRangedWeapons.ts       D&D Simple Ranged Weapons
+    |       |
+    |       \- index.ts                     Barrel file to export all the D&D hard coded implementation information
     |
-    |- pages                        React code for page layout
-    |   |- AdventurePage.tsx            Base page to choose between a FightPage or StoryPage
-    |   |- FightPage.tsx                Page to set up the layout for a Fight Node
-    |   |- HistoryPage.tsx              Page to show the version history of the project
-    |   |- HomePage.tsx                 Home page to show all the adventures to choose from
-    |   \- StoryPage.tsx                Page to set up the layout for a Story Node
+    |- dice                         Code for dice
+    |   |- Dice.ts                      Interface
+    |   |- DiceConstructor.ts           Constructor for Dice
+    |   |- DiceRoller.ts                Function to roll dice
+    |   \- index.ts                     Barrel file to export all the dice information
     |
-    |- version                      Code about the version history
-    |   |- VersionEntry.ts              Template with information regarding a version
-    |   \- VersionHistory.ts            List of all the Versions and their changeset from this project
+    |- dnd-rules                    Code for D&D
+    |   |- actions                      Code for actions
+    |   |   \- Action.ts                    Interface
+    |   |
+    |   |- creatures                    Code for creatures
+    |   |   |- Alignment.ts                 Enum
+    |   |   |- CreatureType.ts              Enum
+    |   |   |- Langauges.ts                 Enum
+    |   |   |- Sense.ts                     Enum
+    |   |   \- Size.ts                      Enum
+    |   |
+    |   |- customization                Code to change a D&D Statblock
+    |   |   |- AddLanguage.ts               Function to add Languages
+    |   |   |- AddRace.ts                   Function to add Race to a Humanoid creature
+    |   |   \- ChangeName.ts                Function to change the creatures name for diversity
+    |   |
+    |   |- damage                       Code about damage
+    |   |   |- AttackDamage.ts              Interface
+    |   |   |- AttackDamageConstructor.ts   Constructor for AttackDamage
+    |   |   \- Damage.ts                    Enum
+    |   |
+    |   |- effects                      Code about effects like conditions
+    |   |   \- Condition.ts                 Enum
+    |   |
+    |   |- items                        Code about items
+    |   |   |- armor                        Code about armor
+    |   |   |   |- Armor.ts                     Interface extends Item
+    |   |   |   |- ArmorConstructor.ts          Constructor for Armor
+    |   |   |   \- ArmorType.ts                 Enum
+    |   |   |
+    |   |   |- weapons                      Code about weapons
+    |   |   |   |- Weapon.ts                    Interface extends Item
+    |   |   |   |- WeaponConstructor.ts         Constructor for Weapons
+    |   |   |   |- WeaponMastery.ts             Enum
+    |   |   |   \- WeaponProperties.ts          Enum
+    |   |   |
+    |   |   |- Coin.ts                      Enum
+    |   |   |- Cost.ts                      Interface
+    |   |   \- CostConstructor.ts           Constructor for Cost
+    |   |
+    |   |- races                        Code for races
+    |   |   \- Race.ts                      Enum
+    |   |
+    |   |- spells                       Code for spells
+    |   |   |- AttackSpell.ts               Interface extends Spell
+    |   |   |- Components.ts                Enum
+    |   |   |- Spell.ts                     Interface
+    |   |   |- SpellSchool.ts               Enum
+    |   |   \- UpcastSpell.ts               Interface extends Spell
+    |   |
+    |   |- statblocks                   Code for statblocks
+    |   |   |- DamageStatblock.ts           Interface extends DNDStatblock
+    |   |   |- DNDStatblock                 Interface
+    |   |   |- LegendaryStatblock.ts        Interface extends DNDStatblock
+    |   |   \- SpellcasterStatblock.ts      Interface extends DNDStatblock
+    |   |
+    |   |- stats                        Code about stats
+    |   |   |- AbilityScores.ts             Enum
+    |   |   |- CalculateModifier.ts         Function to calculate the modifier of a ability score number
+    |   |   \- Skills.ts                    Enum
+    |   |
+    |   \- index.ts                     Barrel file export all the D&D information
     |
-    |- App.css
-    |- App.tsx
-    |- index.css
-    \- main.tsx
+    |- features                     Code that has been separated out by its feature
+    |   |- adventure                    Adventure feature code
+    |   |   |- components                   React .tsx code for the adventure feature
+    |   |   |   \- AdventureCard.tsx            Component for a car holding basic information about an Adventure
+    |   |   |
+    |   |   |- model                        Typescript model code for the adventure feature
+    |   |   |   |- Adventure.ts                 Interface
+    |   |   |   \- AdventureLoader.ts           Constant variable that laods all the adventures in the content/adventure package into a format to be displayed on the HomePage
+    |   |   |
+    |   |   |- pages                        React code for the pages relating to the Adventure feature
+    |   |   |   |- AdventurePage.tsx            Page to display node's information after determining if it is a Fight or Story Type
+    |   |   |   \- HomePage.tsx                 Page to show all the available Adventures a player can play
+    |   |   |
+    |   |   \- index.ts                     Barrel file to export all the adventure feature's information
+    |   |
+    |   |- fight                        Fight feature code
+    |   |   |- components                   React .tsx code for the fight feature
+    |   |   |   |- BattlefieldGrid.tsx          Component to create a 2D Battlefield Grid (Currently only prints 1D)
+    |   |   |   |- CombatantCard.tsx            Component to track a combatant's HP
+    |   |   |   |- DisplayStatblock.tsx         Component to display all the information on a combatant's statblock
+    |   |   |   \- PlayerInitiativeInput.tsx    Component to have the player input their initiative
+    |   |   |
+    |   |   |- model                        Typescript model code for the fight feature
+    |   |   |   |- Combatant.ts                 Interface
+    |   |   |   |- CreateCombatants.ts          Function to take the allies and enemeis, roll their initiative, and put them into one combatant list
+    |   |   |   |- FightNodeType                Interface
+    |   |   |   \- Side.ts                      Enum
+    |   |   |
+    |   |   |- pages                        React code for the pages relating to the fight feature
+    |   |   |   \- FightPage.tsx                Page to display all the information for the fight
+    |   |   |
+    |   |   \- index.ts                     Barrel file to export all the fight feature's information
+    |   |
+    |   |- game-state                   Game Context / State feature code (to hold environmental variables)
+    |   |   |- GameContext.ts               Function to use and create the GameState
+    |   |   |- GameState.ts                 Interface
+    |   |   \- index.ts                     Barrel file to export all the game state feature's information
+    |   |
+    |   |- story                        Story feature code
+    |   |   |- components                   React .tsx code for the story feature
+    |   |   |   |- ChoiceList.tsx               Component to show a list of choices
+    |   |   |   |- StoryImage.tsx               Component to display an image
+    |   |   |   |- StoryParagraph.tsx           Component to display a paragraph of text
+    |   |   |   |- StoryRevealText.tsx          Component to show a button that once clicked will reveal some text
+    |   |   |   \- StoryTitle.tsx               Component to display a title
+    |   |   |
+    |   |   |- model                        Typescript model code for the story feature
+    |   |   |   |- Choice.ts                    Interface
+    |   |   |   |- ContentBlock.ts              Type for what content should be in a Story Node
+    |   |   |   |- FormatText.ts                Function to add italics and bold text formating
+    |   |   |   \- StoryNodeType.ts             Interface
+    |   |   |
+    |   |   |- pages                        React code for the pages relating to the story feature
+    |   |   |   \- StoryPage.tsx                Page to display all the information for a story
+    |   |   |
+    |   |   \- index.ts                     Barrel file to export all the story information
+    |   |
+    |   \- version-history              Version history code
+    |       |- model                        Typescript model code for the version history feature
+    |       |   |- VersionEntry.ts              Interface
+    |       |   \- VersionHistory.ts            Const variable that is updated to store all the information related to all the versions in the history of this project
+    |       |
+    |       \- pages                        React code for the pages relating to the version history feature
+    |           \- HistoryPage.tsx              Page to display all the information for the project's version history
+    |
+    \- shared                       Code that would relate to more than one feature
+        |- components                   React .tsx code for multiple features
+        |   \- ChoiceButton.tsx             Component to display a Choice Button
+        |
+        |- types                        Typescript code to hold interfaces, enums, or types for mupltiple features
+        |   \- NodeType.ts                  Type of Node
+        |
+        |- utils                        Empty package but will hold any other utility information / classes for multiple features
+        |
+        \- index.ts                     Barrel file to export all the shared information
 
-- tests                         Tests to ensure my code is working properly
-    |- jest                         Jest tests for Typescript
+- tests                         Code to hold all the tests
+    |- jest                         Jest tests for model and function logic
+    |   |- dice                         Dice tests
+    |   |   \- Dice.test.ts
     |   |
-    |   \- model                        Most code to test is in the model package
-    |       |- dice                         Code to test Dice Constructor and Roller
-    |       |   \- DiceRoller.test.ts
+    |   \- dnd-rules                    D&D tests
+    |       |- customization                D&D Statblock customization functions tests
+    |       |   \- Customization.test.ts
     |       |
-    |       |- item                         Code to test different objects that extend the Item template
-    |       |   |- armor                        Code to test Armor Constructor
+    |       |- damage                       D&D Damage tests
+    |       |   \- AttackDamageConstructor.test.ts
+    |       |
+    |       |- item                     D&D Item tests
+    |       |   |- armor                    D&D Armor tests
     |       |   |   \- ArmorConstructor.test.ts
     |       |   |
-    |       |   |- coin                         Code to test Coin / Cost Constructor
-    |       |   |   \- CoinConstructor.test.ts
+    |       |   |- cost                     D&D Cost tests
+    |       |   |   \- CostConstructor.test.ts
     |       |   |
-    |       |   \- weapons                      Code to test Weapon Constructor
+    |       |   \- weapons                  D&D Weapons tests
     |       |       \- WeaponConstructor.test.ts
+    |       |
+    |       \- stats                    D&D Stats tests
+    |           \- CalculateModifier.test.ts
     |
-    \- playwright                   Playwright tests for React / Frontend user interaction
-        |- adventure                    Playwright tests that go through entire adventures
-        |   \- testForest.spec.ts           Test all branches of the testForest adventure
+    \- playwright                   Playwright tests for frontend react functionality
+        |- adventure                   Adventure tests for checking all the branches
+        |   \- darkForest.spec.ts
         |
-        \- basic.spec.ts                Code to test if my home page is loading, and the adventure buttons take you to the right url
+        \- basic.spec.ts                Basic test to check if the home page is loading and adventure cards bring you to the right URL
+
 ```

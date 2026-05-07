@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GameContext } from "../../features/game-state/GameContext";
+import { GameContext } from "../../features/game-state/";
 
 export function GameProvider({ children }: { children: React.ReactNode }) {
   const [playerInitiative, setPlayerInitiative] = useState<number | null>(null);

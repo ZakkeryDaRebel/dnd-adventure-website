@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useGame } from "../../game-state/GameContext";
+import { useGame } from "../../game-state/";
 
 export default function PlayerInitiativeInput() {
   const { playerInitiative, setPlayerInitiative } = useGame();

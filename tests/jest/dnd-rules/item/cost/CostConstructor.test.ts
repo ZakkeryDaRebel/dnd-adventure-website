@@ -5,7 +5,7 @@ function compare(costToCompare: Cost, amount: number, type: keyof typeof Coin) {
   expect(costToCompare.type).toBe(type);
 }
 
-describe("Coin Constructor", () => {
+describe("Cost Constructor", () => {
   const amount: number = 10;
   const type: keyof typeof Coin = Coin.GP;
 
