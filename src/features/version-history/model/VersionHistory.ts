@@ -13,6 +13,18 @@ import type { VersionEntry } from "./VersionEntry";
 
 export const VERSION_HISTORY: VersionEntry[] = [
   {
+    version: "v2.2.0",
+    commit: "latest",
+    date: "",
+    description: "Added Skill modifier calculation",
+    additions: [
+      "CalculateSkillModifier function",
+      "CalculateSkillModifier test",
+    ],
+    reworks: [],
+    removals: [],
+  },
+  {
     version: "v2.1.0",
     commit: "d48ef2b",
     date: "May 7th, 2026",
