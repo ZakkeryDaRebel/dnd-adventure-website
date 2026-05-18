@@ -124,6 +124,7 @@
     |   |- stats                        Code about stats
     |   |   |- AbilityScores.ts             Enum
     |   |   |- CalculateModifier.ts         Function to calculate the modifier of a ability score number
+    |   |   |- CalculateSkillModifier.ts    Function to calculate the modifier for a skill by checking to see if it is proficient and stored already or calling calculateModifier
     |   |   \- Skills.ts                    Enum
     |   |
     |   \- index.ts                     Barrel file export all the D&D information
