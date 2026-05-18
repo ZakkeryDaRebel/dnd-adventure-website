@@ -15,13 +15,19 @@ export const VERSION_HISTORY: VersionEntry[] = [
   {
     version: "v2.2.0",
     commit: "latest",
-    date: "",
-    description: "Added Skill modifier calculation",
+    date: "May 18th, 2026",
+    description:
+      "Added Skill modifier calculation, and update GameStat to include information about shops and npcs",
     additions: [
       "CalculateSkillModifier function",
       "CalculateSkillModifier test",
+      "AdventureContext template",
+      "NPCState template",
+      "ShopState template",
+      "DarkForestContext base",
+      "GoblinWestwoodContext base",
     ],
-    reworks: [],
+    reworks: ["GameState template", "GameProvider hook"],
     removals: [],
   },
   {
